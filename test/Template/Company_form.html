@@ -1,0 +1,16 @@
+[200~{% extends "Header.html" %}
+
+{% block content_block %}
+<h1>
+  {% if not form.instance.pk %}
+  会社・従業員情報を登録する
+  {% else %}
+  会社・従業員情報を更新する
+  {% endif %}
+</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class='btn btn-primary' value="登録">
+  </form>
+{% endblock %}
