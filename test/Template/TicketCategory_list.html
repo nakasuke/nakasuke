@@ -1,0 +1,27 @@
+{% extends "Header.html" %}
+
+{% block content_block %}
+<h2>List of Ticket category</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Category name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for category in ticket_category_list %}
+    <tr>
+      <td>{{ category.name }}</td>
+      <td><a href="detail/{{ category.id }}">Detail</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="container">
+  <p><a class='btn btn-primary' href="{% url 'TicketMgt:create' %}">Create</a></p>
+  <br>
+</div>
+{% endblock %}
+

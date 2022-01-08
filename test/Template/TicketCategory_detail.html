@@ -1,0 +1,25 @@
+{% extends "Header.html" %}
+
+{% block content_block %}
+<div class="jumbotron">
+  <h2>Ticket Category Detail</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">NAME</th>
+        <th scope="col">CID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ ticket_category_detail.name }}</td>
+        <td>{{ ticket_category_detail.cid }}</td>
+      </tr>
+    <tbody>
+  </table>
+  <div class="container">
+    <p><a class='btn btn-primary' href="{% url 'TicketMgt:list' %}">Update</a></p>
+    <br>
+  </div>
+</div>
+{% endblock %}

@@ -38,13 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # allauth needs this from Django
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.keycloak',
-    'App',
+    'TicketMgt',
 ]
 
 MIDDLEWARE = [
@@ -56,21 +50,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-# allauth needs this from Django start
-AUTHENTICATION_BACKENDS = [
-	'django.contrib.auth.backends.ModelBackend',
-	'allauth.account.auth_backends.AuthenticationBackend',
-]
-
-SOCIALACCOUNT_PROVIDERS = {
-	'keycloak':{
-	  'KEYCLOAK_URL':'http://127.0.0.1:8180/auth',
-	  'KEYCLOAK_REALM':'Sample_service',
-	}
-}
-
-# allauth .. end
 
 ROOT_URLCONF = 'test.urls'
 
@@ -85,8 +64,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-		# allauth needs this from Django
-	 	'django.template.context_processors.request',
             ],
         },
     },
@@ -148,20 +125,3 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# allauth needs this from Django start
-#
-# 01. SITE-ID for sites framwork
-SITE_ID = 2
-# 02.redirect url when login/logout
-LOGIN_REDIRECT_URL = 'home'
-ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
-# 03.authentication type is "E-mail" and "password"
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-# 04.Don't use username
-ACCOUNT_USERNAME_REQUIRED = False
-# 05.When registration user , send e-mail -> none
-ACCOUNT_EMAIL_VERIFICATION = 'none'
-ACCOUNT_EMAIL_REQUIRED = True
-#
-# allauth ... end
